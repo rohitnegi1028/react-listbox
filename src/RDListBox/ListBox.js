@@ -1,14 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+import './ListItem.css';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+const ulStyle = {
+  border: '2px solid grey',
+  padding: '5px',
+  listStyleType: 'none',
+};
+const listStyle = { color: 'blue', fontSize: '23px', cursor: 'pointer' };
 
-const ListItem = ({ value, onClick }) => <li onClick={onClick}>{value}</li>;
+const ListItem = ({ value, onClick }) => {
+  const [isSelected, setIsSelected] = useState(false);
+  const selectItem = (event) => {
+    setIsSelected(!isSelected);
+  };
+
+  return (
+    <li style={listStyle} onClick={selectItem}>
+      {value}
+    </li>
+  );
+};
 
 const List = ({ items, onItemClick }) => (
-  <ul>
+  <ul style={ulStyle}>
     {items.map((item, i) => (
       <ListItem key={item.order} value={item.key} onClick={onItemClick} />
     ))}

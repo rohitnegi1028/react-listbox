@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListBox from './ListBox';
+import MoveAction from './MoveAction';
+import ReOrder from './ReOrder';
 
 const allOptions = [
   { key: 'name', order: 2 },
@@ -25,6 +27,9 @@ const arrangeOptions = () => {
   });
 };
 
+const moveToRight = () => {};
+const moveToLeft = () => {};
+
 const RDlistBox = () => {
   arrangeOptions();
 
@@ -35,7 +40,13 @@ const RDlistBox = () => {
           <ListBox title="Available" options={availableOptions} />
         </Col>
         <Col>
+          <MoveAction />
+        </Col>
+        <Col>
           <ListBox title="Selected" options={selectedOptions} />
+        </Col>
+        <Col>
+          <ReOrder />
         </Col>
       </Row>
     </Container>
