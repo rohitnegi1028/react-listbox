@@ -27,11 +27,11 @@ const arrangeOptions = () => {
   });
 };
 
-const moveToRight = () => {};
-const moveToLeft = () => {};
-
 const RDlistBox = () => {
   arrangeOptions();
+
+  const moveToRight = () => {};
+  const moveToLeft = () => {};
 
   return (
     <Container>

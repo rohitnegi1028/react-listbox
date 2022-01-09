@@ -1,40 +1,41 @@
 import React, { useState } from 'react';
 import './ListItem.css';
-
+import ListItem from './ListItem';
 const ulStyle = {
   border: '2px solid grey',
   padding: '5px',
   listStyleType: 'none',
 };
-const listStyle = { color: 'blue', fontSize: '23px', cursor: 'pointer' };
-
-const ListItem = ({ value, onClick }) => {
-  const [isSelected, setIsSelected] = useState(false);
-  const selectItem = (event) => {
-    setIsSelected(!isSelected);
-  };
-
+const List = ({ items, onItemClick }) => {
   return (
-    <li style={listStyle} onClick={selectItem}>
-      {value}
-    </li>
+    <ul style={ulStyle}>
+      {items.map((item, i) => (
+        <ListItem
+          key={item.order}
+          value={item.key}
+          onItemClick={onItemClick}
+          index={i}
+        />
+      ))}
+    </ul>
   );
 };
 
-const List = ({ items, onItemClick }) => (
-  <ul style={ulStyle}>
-    {items.map((item, i) => (
-      <ListItem key={item.order} value={item.key} onClick={onItemClick} />
-    ))}
-  </ul>
-);
-
 const ListBox = ({ title, options }) => {
-  console.log(options);
+  let selectedItems = [];
+
+  const selectItem = (index, removeAll, isRemove) => {
+    if (removeAll) {
+      selectedItems = [];
+    }
+    selectedItems.push(options[index]);
+    console.log(selectedItems);
+  };
+
   return (
     <div>
       <h3> {title} </h3>
-      <List items={options} />
+      <List items={options} onItemClick={selectItem} />
     </div>
   );
 };
