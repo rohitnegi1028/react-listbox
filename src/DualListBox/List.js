@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import './Styles/List.css';
 import ListItem from './ListItem';
 
-const List = ({ options, onLiClick }) => {
+const List = ({ options, onLIClick }) => {
   return (
     <ul>
       {options.map((option, i) => (
-        <ListItem option={option} onLiClick={onLiClick} index={i} />
+        <ListItem
+          key={option.key}
+          option={option}
+          onLIClick={onLIClick}
+          index={i}
+        />
       ))}
     </ul>
   );

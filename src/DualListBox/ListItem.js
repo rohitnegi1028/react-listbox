@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './Styles/ListItem.css';
 
-const ListItem = ({ option, index, onLiClick }) => {
+const ListItem = ({ option, index, onLIClick }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const selectItem = (event) => {
+    onLIClick(option, index, !isSelected);
     setIsSelected(!isSelected);
-    onLiClick(option, index);
   };
 
   return (
-    <li  onClick={selectItem}>
+    <li className={isSelected ? 'selected' : ''} onClick={selectItem}>
       {option.key}
     </li>
   );

@@ -1,7 +1,6 @@
 li {
-  color: 'blue';
   font-size: '23px';
-  cursor: 'pointer';
+  cursor: pointer;
 }
 
 .selected {
