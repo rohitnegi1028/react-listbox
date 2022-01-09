@@ -1,0 +1,10 @@
+li {
+  color: 'blue';
+  font-size: '23px';
+  cursor: 'pointer';
+}
+
+.selected {
+  background-color: grey;
+  color: black;
+}
