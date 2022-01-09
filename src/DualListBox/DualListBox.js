@@ -54,7 +54,7 @@ const DualListBox = () => {
     } else {
       // remove from selected
       let index = findIndexOfOption(selectedAvailable, option);
-      selectedSelecteds.splice(index);
+      selectedSelecteds.splice(index, 1);
     }
   };
 
@@ -64,7 +64,7 @@ const DualListBox = () => {
       destinationList.push(option);
       //remove from source list
       let index = findIndexOfOption(sourceList, option);
-      sourceList.splice(index);
+      sourceList.splice(index, 1);
     });
   };
 
@@ -90,6 +90,7 @@ const DualListBox = () => {
             title="Available"
             options={availableOptions}
             onLIClick={onAvailableLIClick}
+            isFilterAble={true}
           />
         </Col>
         <Col xs={2} className="action-container">
