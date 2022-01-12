@@ -41,21 +41,24 @@ const DualListBox = () => {
   let selectedSelecteds = [];
   const onAvailableLIClick = (option, index, isSelected) => {
     if (isSelected) {
-      selectedAvailable.push(option);
+      selectedAvailable = [option];
     } else {
       // remove from selected
       let index = findIndexOfOption(selectedAvailable, option);
       selectedAvailable.splice(index);
     }
+    console.log(selectedAvailable);
+    setUpdateVar(!updateVar);
   };
   const onSelectedLIClick = (option, index, isSelected) => {
     if (isSelected) {
-      selectedSelecteds.push(option);
+      selectedSelecteds = [option];
     } else {
       // remove from selected
       let index = findIndexOfOption(selectedAvailable, option);
       selectedSelecteds.splice(index, 1);
     }
+    setUpdateVar(!updateVar);
   };
 
   const moveOptions = (sourceList, destinationList, options) => {

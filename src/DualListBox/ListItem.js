@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Styles/ListItem.css';
 
-const ListItem = ({ option, index, onLIClick }) => {
+const ListItem = ({ option, index, onLIClick, arrowAction }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const selectItem = (event) => {
@@ -10,7 +10,11 @@ const ListItem = ({ option, index, onLIClick }) => {
   };
 
   return (
-    <li className={isSelected ? 'selected' : ''} onClick={selectItem}>
+    <li
+      className={isSelected ? 'selected' : ''}
+      onClick={selectItem}
+      tabIndex="0"
+    >
       {option.key}
     </li>
   );

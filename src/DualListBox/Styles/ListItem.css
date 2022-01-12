@@ -7,3 +7,11 @@ li {
   background-color: grey;
   color: black;
 }
+
+li:hover {
+  color: red;
+}
+
+li:focus {
+  color: green;
+}
