@@ -3,13 +3,18 @@ import './Styles/List.css';
 import ListItem from './ListItem';
 
 const List = ({ options, onLIClick }) => {
-  const arrowAction = (index, direction) => {};
   const onKeyDown = (e) => {
     let keyCode = e.keyCode || e.which;
-    if (keyCode == 38 || keyCode == 40) {
+    const nextElement =
+      keyCode === 38
+        ? e.target.previousElementSibling
+        : keyCode === 40
+        ? e.target.nextElementSibling
+        : null;
+    if (nextElement) {
       e.preventDefault();
-      console.log('here');
-      console.log(e);
+      nextElement.focus();
+      nextElement.click();
     }
   };
   return (
@@ -20,7 +25,6 @@ const List = ({ options, onLIClick }) => {
           option={option}
           onLIClick={onLIClick}
           index={i}
-          arrowAction={arrowAction}
         />
       ))}
     </ul>
