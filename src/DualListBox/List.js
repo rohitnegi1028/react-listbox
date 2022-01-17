@@ -18,7 +18,7 @@ const List = ({ options, onLIClick }) => {
     }
   };
   return (
-    <ul onKeyDown={onKeyDown} tabindex="0 ">
+    <ul className="list-ul" onKeyDown={onKeyDown} tabindex="0 ">
       {options.map((option, i) => (
         <ListItem
           key={option.key}

@@ -13,7 +13,7 @@ const ListItem = ({ option, index, onLIClick, arrowAction }) => {
     <li
       className={isSelected ? 'selected' : ''}
       onClick={selectItem}
-      tabIndex="0"
+      tabIndex="-1"
     >
       {option.key}
     </li>

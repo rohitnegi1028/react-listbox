@@ -3,3 +3,12 @@ ul {
   padding: '5px';
   list-style-type: none;
 }
+
+ul:focus-within {
+  border: 1px solid black;
+}
+
+.list-ul:focus-within .selected {
+  color: red;
+  background-color: blue;
+}
